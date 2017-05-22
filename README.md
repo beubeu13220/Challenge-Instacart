@@ -1,8 +1,6 @@
 # Challenge-Instacart
 
 
-mykey = 'sha1:c832bb57367f:714f287b3660d505eaef0345709883765ab261d8'
-
 * Remarque 1 :
 Par rapport à la table order, la distribution sur les variables de order sont les mêmes pour le train et le test 
 
