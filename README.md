@@ -35,6 +35,7 @@ faire des stats sur le lien entre le train et le order
 
 	- Créer des clusters de produit, selon leur caractéristique et si ils sont commandé ensemble
 	- Ensuite prédire la commande ou non de ces clusters
+	- Faire différents datasets avec les order numbers (un dataset avec les 3 dernières commandes, 4, 5, 6?)
 	- regarder les produits toujours re commandé ou jamais recommande une fois commandé
 	- regarder si il y'a des ID dans le test qui n'ont pas de prior 
 		Dans test ils ont tous un prior 
