@@ -32,7 +32,7 @@ faire ses stats que sur le prior
 faire des stats sur le lien entre le train et le order 
 
 
-## Idée d'approche numéro 1 :
+## Idée d'approche numéro 1 :
 
 	- Créer des clusters de produit, selon leur caractéristique et si ils sont commandé ensemble
 	- Ensuite prédire la commande ou non de ces clusters
@@ -42,17 +42,17 @@ faire des stats sur le lien entre le train et le order
 		Dans test ils ont tous un prior 
 		Meme min/max sur le train et le test, donc miniumun de prior est de 3 (3 commandes précèdentes)
 
-## Idée d'approche numéro 2 :
+## Idée d'approche numéro 2 :
 
 	- On crée des mesure de similarité entre produits et users
-		- Word2vec
+		- Word2vec (pckg : gensim)
 		- Factorisation de matrice (cf netflix)
 		- LDA
 		- PLSA
 		- Dot product 
 		- Koren SVD
 		- RNN 
-	- On utilise ANNOY indexe pour récupérer les K-plus proches produits
+	- On utilise ANNOY indexe pour récupérer les K-plus proches produits (pckg: Annoy)
 	- On utilse un modèle pour mettre des poids à chaque source, puis rank les produits, en supervisant avec le train
 
 	- Question : Comment trouver le K? en supervisant sur le train ?
@@ -69,3 +69,4 @@ faire des stats sur le lien entre le train et le order
 6. [Nearest neighbor methods and vector models – part 1, *Erik Bernhardsson* ](https://erikbern.com/2015/09/24/nearest-neighbor-methods-vector-models-part-1.html)
 7. [Music recommendations mlconf, *Erik Bernhardsson* ](https://www.slideshare.net/erikbern/music-recommendations-mlconf-2014)
 8. [Model benchmarks, *Erik Bernhardsson* ](https://erikbern.com/2013/11/02/model-benchmarks/)
+
