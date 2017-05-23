@@ -1,6 +1,6 @@
 # Challenge-Instacart
 
-## Remarque :
+## Remarque :
 
 *N°1 :* 
 Par rapport à la table order, la distribution sur les variables de order sont les mêmes pour le train et le test 
@@ -53,9 +53,9 @@ faire des stats sur le lien entre le train et le order
 		- Koren SVD
 		- RNN 
 	- On utilise ANNOY indexe pour récupérer les K-plus proches produits (pckg: Annoy)
+	- On entraine un modèle ML classique pour déterminer le k selon la nature de la commande 
 	- On utilse un modèle pour mettre des poids à chaque source, puis rank les produits, en supervisant avec le train
 
-	- Question : Comment trouver le K? en supervisant sur le train ?
 
 
 
