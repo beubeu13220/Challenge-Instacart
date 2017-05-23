@@ -45,6 +45,7 @@ faire des stats sur le lien entre le train et le order
 ## Idée d'approche numéro 2 :
 
 	- On crée des mesure de similarité entre produits et users
+	*On peut prendre tout les produits, ou que les produits reorder par exemple* 
 		- Word2vec (pckg : gensim)
 		- Factorisation de matrice (cf netflix)
 		- LDA
@@ -53,6 +54,9 @@ faire des stats sur le lien entre le train et le order
 		- Koren SVD
 		- RNN 
 	- On utilise ANNOY indexe pour récupérer les K-plus proches produits (pckg: Annoy)
+		- N-Neirest user (Collaborating Filter), exemple : intersection des supports de produits des k-user proche
+		- N-Neirest items (Item-to-Item Collaborative filtering )
+		- Combine two 
 	- On entraine un modèle ML classique pour déterminer le k selon la nature de la commande 
 	- On utilse un modèle pour mettre des poids à chaque source, puis rank les produits, en supervisant avec le train
 
