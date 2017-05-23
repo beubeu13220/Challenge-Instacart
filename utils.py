@@ -1,16 +1,22 @@
+import os 
+
 def descr(data, n=5):
-	print(data.shape)
-	print(data.head(n))
+    print(data.shape)
+    print(data.head(n))
 
 def likely_format(number):
     return '{:,}'.format(number).replace(',', ' ')
 
-    class MySentences(object):
-    def __init__(self, name):
-        self.name = name
+
+def data_directory():
+    if os.path.exists("/home/ec2-user/data") :
+        print("On AWS instance")
+        os.chdir("/home/ec2-user/data")
+
+    else :
+        print("My local machine")
+        os.chdir("/media/brehelin/0FECCBDE10E4BE99/Kaggle/Data")
         
-    def run(self):
-        sentence = []
-        for i in range(self.name.shape[0]):
-            sentence.append([self.name.ix[i, "order_id"], self.name.ix[i, "product_id"]])
-        return sentence
+    print(os.getcwd())
+
+    
