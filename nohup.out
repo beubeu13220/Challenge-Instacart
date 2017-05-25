@@ -1,0 +1,27 @@
+On AWS instance
+/home/ec2-user/data
+Traceback (most recent call last):
+  File "get_taggeddocument.py", line 37, in <module>
+    liste_unique_user = list(np.unique(merge_order_product["user_id"]))
+NameError: name 'np' is not defined
+On AWS instance
+/home/ec2-user/data
+nb unique user : 206209
+Traceback (most recent call last):
+  File "get_taggeddocument.py", line 42, in <module>
+    start_time = time.time()
+NameError: name 'time' is not defined
+On AWS instance
+/home/ec2-user/data
+nb unique user : 206209
+Traceback (most recent call last):
+  File "get_taggeddocument.py", line 43, in <module>
+    sentences = [doc2vec.TaggedDocument(words=words_for_user(uid), tags=[uid]) for uid in liste_unique_user]
+  File "get_taggeddocument.py", line 43, in <listcomp>
+    sentences = [doc2vec.TaggedDocument(words=words_for_user(uid), tags=[uid]) for uid in liste_unique_user]
+NameError: name 'doc2vec' is not defined
+On AWS instance
+/home/ec2-user/data
+nb unique user : 206209
+--- 9338.200659275055 seconds ---
+List saved
