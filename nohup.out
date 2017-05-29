@@ -25,3 +25,58 @@ On AWS instance
 nb unique user : 206209
 --- 9338.200659275055 seconds ---
 List saved
+python: can't open file 'get_corpus_word2vec.py': [Errno 2] No such file or directory
+  File "get_copurs_word2vec.py", line 42
+    if train_mode = True :
+                  ^
+SyntaxError: invalid syntax
+  File "get_copurs_word2vec.py", line 38
+    def words_for_user(data_prior, uid, train_mode=False, data_train):
+                      ^
+SyntaxError: non-default argument follows default argument
+  File "get_copurs_word2vec.py", line 38
+    def words_for_user(data_prior, uid, train_mode=False, data_train):
+                      ^
+SyntaxError: non-default argument follows default argument
+On AWS instance
+/home/ec2-user/data
+Traceback (most recent call last):
+  File "get_copurs_word2vec.py", line 63, in <module>
+    sentence_train = [words_for_user(merge_order_product, uid, True, order_products__train) for uid in train_user]
+  File "get_copurs_word2vec.py", line 63, in <listcomp>
+    sentence_train = [words_for_user(merge_order_product, uid, True, order_products__train) for uid in train_user]
+  File "get_copurs_word2vec.py", line 44, in words_for_user
+    sequence.append(train_sequence.reset_index()["product_id"].tolist())
+  File "/home/ec2-user/anaconda3/lib/python3.5/site-packages/pandas/core/series.py", line 1553, in append
+    verify_integrity=verify_integrity)
+  File "/home/ec2-user/anaconda3/lib/python3.5/site-packages/pandas/tools/merge.py", line 845, in concat
+    copy=copy)
+  File "/home/ec2-user/anaconda3/lib/python3.5/site-packages/pandas/tools/merge.py", line 901, in __init__
+    raise TypeError("cannot concatenate a non-NDFrame object")
+TypeError: cannot concatenate a non-NDFrame object
+On AWS instance
+/home/ec2-user/data
+train end
+List saved
+--- 3535.036306619644 seconds ---
+test prior end
+List saved
+--- 786.9826476573944 seconds ---
+test label end
+List saved
+--- 93.09391140937805 seconds ---
+On AWS instance
+/home/ec2-user/data
+nb unique user : 206209
+--- 9792.964209794998 seconds ---
+Traceback (most recent call last):
+  File "get_taggeddocument_sequence.py", line 53, in <module>
+    pickle.dump(sentences_wth_sequences, fp)
+NameError: name 'sentences_wth_sequences' is not defined
+On AWS instance
+/home/ec2-user/data
+Traceback (most recent call last):
+  File "get_taggeddocument_sequence.py", line 40, in <module>
+    random.shuffle(liste_user)
+NameError
+ name 'random' is not defined
