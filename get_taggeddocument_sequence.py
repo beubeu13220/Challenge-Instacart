@@ -12,6 +12,7 @@ to see all processus that run in back task
 """
 import numpy as np
 import pandas as pd 
+from itertools import chain
 import random 
 import pickle 
 import utils
@@ -45,11 +46,11 @@ test_user = liste_user[thress:]
 # function to get the the word list for each user_id
 def words_for_user(data_prior, uid, train_mode, data_train):
     sequence = data_prior[data_prior["user_id"]==uid].groupby(["order_id"])["product_id"].apply(list)
-    sequence = sequence.reset_index()["product_id"].tolist()
+    sequence = list(chain(*sequence.reset_index()["product_id"].values))
 
     if train_mode == True :
             train_sequence = data_train[data_train["user_id"]==uid].groupby(["order_id"])["product_id"].apply(list)
-            sequence.append(train_sequence.reset_index()["product_id"].tolist())
+            sequence.extend(list(chain(*train_sequence.reset_index()["product_id"].values)))
     else :
         pass 
     
@@ -58,7 +59,7 @@ def words_for_user(data_prior, uid, train_mode, data_train):
 def label_for_user(uid, data_train):
     label = []
     test_sequence = data_train[data_train["user_id"]==uid].groupby(["order_id"])["product_id"].apply(list)
-    label.append(test_sequence.reset_index()["product_id"].tolist())
+    label.append(list(chain(*test_sequence.reset_index()["product_id"].values)))
     return label 
 
 def saver_list(liste,name):
@@ -79,13 +80,13 @@ sentence_test= [words_for_user(merge_order_product, uid, False, order_products__
 sentence_test = [doc2vec.TaggedDocument(words=words_for_user(merge_order_product, uid, False, order_products__train), 
                                         tags=[uid]) for uid in test_user]
 print("test prior end")
-saver_list(sentence_test, "w2v_test")
+saver_list(sentence_test, "D2v_test")
 print("--- %s seconds ---" % (time.time() - start_time))
 
 start_time = time.time()
 label_test= [label_for_user(uid, order_products__train) for uid in test_user]
 print("test label end")
-saver_list(label_test, "w2v_label_test")
+saver_list(label_test, "D2v_label_test")
 print("--- %s seconds ---" % (time.time() - start_time))
 
 

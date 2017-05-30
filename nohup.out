@@ -80,3 +80,47 @@ Traceback (most recent call last):
     random.shuffle(liste_user)
 NameError
  name 'random' is not defined
+On AWS instance
+/home/ec2-user/data
+train end
+List saved
+--- 4811.86368227005 seconds ---
+test prior end
+List saved
+--- 1647.852108001709 seconds ---
+test label end
+List saved
+--- 197.2714970111847 seconds ---
+On AWS instance
+/home/ec2-user/data
+train end
+List saved
+--- 4831.127237796783 seconds ---
+test prior end
+List saved
+--- 2528.5516822338104 seconds ---
+test label end
+List saved
+--- 88.61416745185852 seconds ---
+On AWS instance
+/home/ec2-user/data
+train end
+List saved
+--- 4871.873188734055 seconds ---
+test prior end
+List saved
+--- 1635.3946812152863 seconds ---
+test label end
+List saved
+--- 197.16236853599548 seconds ---
+On AWS instance
+/home/ec2-user/data
+train end
+List saved
+--- 4878.968823194504 seconds ---
+test prior end
+List saved
+--- 2539.0569739341736 seconds ---
+test label end
+List saved
+--- 87.88784885406494 seconds ---

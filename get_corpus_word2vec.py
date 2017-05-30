@@ -4,6 +4,7 @@ import numpy as np
 from gensim.models import word2vec
 from gensim.models import Doc2Vec, doc2vec
 import utils
+from itertools import chain
 import time 
 from collections import Counter
 import pickle
@@ -35,13 +36,14 @@ test_user = liste_user[thress:]
 
 
 
+# function to get the the word list for each user_id
 def words_for_user(data_prior, uid, train_mode, data_train):
     sequence = data_prior[data_prior["user_id"]==uid].groupby(["order_id"])["product_id"].apply(list)
-    sequence = sequence.reset_index()["product_id"].tolist()
+    sequence = list(chain(*sequence.reset_index()["product_id"].values))
 
     if train_mode == True :
             train_sequence = data_train[data_train["user_id"]==uid].groupby(["order_id"])["product_id"].apply(list)
-            sequence.append(train_sequence.reset_index()["product_id"].tolist())
+            sequence.extend(list(chain(*train_sequence.reset_index()["product_id"].values)))
     else :
         pass 
     
@@ -50,8 +52,9 @@ def words_for_user(data_prior, uid, train_mode, data_train):
 def label_for_user(uid, data_train):
     label = []
     test_sequence = data_train[data_train["user_id"]==uid].groupby(["order_id"])["product_id"].apply(list)
-    label.append(test_sequence.reset_index()["product_id"].tolist())
+    label.append(list(chain(*test_sequence.reset_index()["product_id"].values)))
     return label 
+
 
 def saver_list(liste,name):
     with open(name, 'wb') as fp:
