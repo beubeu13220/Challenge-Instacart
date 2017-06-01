@@ -124,3 +124,16 @@ List saved
 test label end
 List saved
 --- 87.88784885406494 seconds ---
+On AWS instance
+/home/ec2-user/data
+Traceback (most recent call last):
+  File "get_corpus_word2vec_v2.py", line 22, in <module>
+    order_products__train = pd.merge(order_products__train, order[["order_id", "user_id"]],how="left", on="order_id")
+NameError: name 'order_products__train' is not defined
+On AWS instance
+/home/ec2-user/data
+nb unique user : 203164
+--- 5657.167104005814 seconds ---
+Corpus saved
+--- 260.9253420829773 seconds ---
+Label saved

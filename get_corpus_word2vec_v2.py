@@ -11,6 +11,7 @@ utils.data_directory()
 
 # We load the two datasets that we need 
 order_products__prior = pd.read_csv("order_products__prior.csv")
+order_products__train = pd.read_csv("order_products__train.csv")
 order = pd.read_csv("orders.csv")
 #PRIOR
 merge_order_product = pd.merge(order_products__prior[["order_id", "product_id", "reordered"]], 
